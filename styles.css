@@ -10,6 +10,7 @@
     align-items: center;
     background-color: hsl(0, 0%, 100%);
     flex-direction: column;
+    font-family: Helvetica;
   }
   
   .container {
