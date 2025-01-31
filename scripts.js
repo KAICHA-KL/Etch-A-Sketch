@@ -1,6 +1,9 @@
 const container = document.querySelector('.container') // get container 
 
 
+
+// RESET GRID SIZE 
+
 let gridSize = 10;
 const resize = document.querySelector('.Resize');
 resize.addEventListener('click',(event)=>{
@@ -10,13 +13,18 @@ resize.addEventListener('click',(event)=>{
     
 });
 
+// RESET GRID COLOR
+
 const resetGridcolor = document.querySelector('.clear');
 resetGridcolor.addEventListener('click',(event)=>{
      const removeColor = document.querySelectorAll('.gridChild');
-      removeColor.forEach(div => {div.style.backgroundColor = 'aliceblue'});
+      removeColor.forEach(div => {div.style.backgroundColor = 'aliceblue',div.style.opacity ='1'});
 });
 
-function cleargrid() {
+
+// FUNCTION TO CLEAR THE GRID 
+
+function cleargrid() { 
 
     for(let k=0;k<gridSize;k++)
         {
@@ -26,8 +34,13 @@ function cleargrid() {
 
 }
 
+// FUNCTION TO CREATE THE GRID 
 
 function creategrid() {
+    if ( gridSize > 100 ) {
+        gridSize = 100;
+    }  
+
 for(let i=0;i<gridSize;i++)
     {
         const divrow = document.createElement('div');
@@ -41,16 +54,20 @@ for(let i=0;i<gridSize;i++)
         }
     } 
 
-
+// HOVERFEATURE
     let hoverItem = document.querySelectorAll('.gridChild');
 hoverItem.forEach(div=>{
+    let currentOpacity = 0.2;
     div.addEventListener("mouseover",(event)=>{
+        currentOpacity += 0.2;
         div.style.backgroundColor = '#e2ee41';
+        div.style.opacity = currentOpacity;
     });
 });
 
 }
 
+//TO RUN BY DEFAULT TO HAVE GRID ON SCREEN BEFORE USER INPUT
 
 creategrid();
 
