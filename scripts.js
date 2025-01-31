@@ -4,16 +4,23 @@ const container = document.querySelector('.container') // get container
 let gridSize = 10;
 const resize = document.querySelector('.Resize');
 resize.addEventListener('click',(event)=>{
-    cleargrid();
+    cleargrid();                                       //First clears existing gird from DOM
     gridSize = document.getElementById('mynumber').value;
-    creategrid();
+    creategrid();                                      //Creates the new grid
+    
+});
+
+const resetGridcolor = document.querySelector('.clear');
+resetGridcolor.addEventListener('click',(event)=>{
+     const removeColor = document.querySelectorAll('.gridChild');
+      removeColor.forEach(div => {div.style.backgroundColor = 'aliceblue'});
 });
 
 function cleargrid() {
 
     for(let k=0;k<gridSize;k++)
         {
-            const removerow = document.querySelectorAll('.gridRow');
+            const removerow = document.querySelectorAll('.gridRow'); 
             removerow.forEach(div => {div.remove()});
         } 
 
@@ -34,6 +41,16 @@ for(let i=0;i<gridSize;i++)
         }
     } 
 
+
+    let hoverItem = document.querySelectorAll('.gridChild');
+hoverItem.forEach(div=>{
+    div.addEventListener("mouseover",(event)=>{
+        div.style.backgroundColor = '#e2ee41';
+    });
+});
+
 }
 
+
 creategrid();
+
