@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(0, 0%, 100%);
+    flex-direction: column;
+  }
+  
+  .container {
+    width: 90vmin;
+    aspect-ratio: 1/1;
+    max-width: 600px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px;
+    background-color: white;
+  }
+  
+  .gridRow {
+    flex: 1;
+    display: flex;
+    gap: 2px;
+  }
+  
+  .gridChild {
+    flex: 1;
+    background-color: aliceblue;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    position: relative;
+  }
+  
+  /* Square aspect ratio using padding hack */
+  .gridChild::after {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  .hero { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    padding: 10px 40px; /* Padding inside the button */
+    border: none; /* Remove default border */
+    border-radius: 20px; /* Round corners */
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: #333; /* Text color */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions */
+    margin:30px; /* Space between buttons */
+    background-color: #eeeeee;
+  }
+  
+  button:hover {
+    background-color: #252525;
+    color: #ffffff;
+  }
+
+  button:active {
+    transform: scale(0.9);
+  }
+
+  input{
+    max-width: 200px;
+    padding: 10px 40px; /* Padding inside the button */
+    border-style: solid; /* Remove default border */
+    border-radius: 20px; /* Round corners */
+    border-color:#000000;
+    font-size: 16px; /* Text size */
+    font-weight: bold; /* Bold text */
+    color: #000000; /* Text color */
+    margin:30px; /* Space between buttons */
+    background-color: #ffffff;
+  }
